@@ -1,0 +1,31 @@
+model:
+  model_name: "HuatuoGPT/HuatuoGPT-Vision-7B"
+  dtype: "float16"
+  low_cpu_mem_usage: true
+
+data:
+  train_json: "output/vqa_cot_data.json"
+
+training:
+  batch_size: 4
+  learning_rate: 1e-4
+  weight_decay: 0.01
+  beta1: 0.9
+  beta2: 0.999
+  epochs: 10
+  seed: 42
+  output_dir: "./checkpoints"
+  gradient_accumulation_steps: 4
+  max_grad_norm: 1.0
+  warmup_ratio: 0.1
+  min_lr: 1e-6
+  save_every: 2
+
+curriculum:
+  ema_alpha: 0.9
+  easy_threshold: 2.0
+  medium_threshold: 1.5
+  warmup_epochs: 2
+
+logging:
+  log_dir: "logs/training"

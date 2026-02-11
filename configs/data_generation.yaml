@@ -1,0 +1,14 @@
+mode: vqa
+
+model:
+  huatuo_path: "/path/to/your/HuatuoGPT-Vision-34B"
+
+data:
+  input_json: "data/input_detection.json"
+  output_vqa: "output/vqa_cot_data.json"
+
+processing:
+  mask_threshold: 127
+
+logging:
+  log_dir: "logs/data_generation"
